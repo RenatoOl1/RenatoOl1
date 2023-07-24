@@ -30,3 +30,31 @@ $dataDeNascimento = '2003-05-15';
 $pessoa = new Pessoa("jubileu", $dataDeNascimento);
 $idadeEmMeses = $pessoa->getIdadeEmMeses();
 echo "A idade de {$pessoa->getNome()} é {$idadeEmMeses} meses.";
+
+
+
+Criar uma instância da classe "Pessoa" e preencher suas propriedades com dados reais.
+
+
+<?php
+class Pessoa {
+    public $nome;
+    public $idade;
+    public $email;
+public function __construct($nome, $idade, $email) {
+        $this->nome = $nome;
+        $this->idade = $idade;
+        $this->email = $email;
+    }
+ public function exibirInformacoes() {
+        echo "Nome: {$this->nome}\n";
+        echo "Idade: {$this->idade}\n";
+        echo "Email: {$this->email}\n";
+    }
+}
+$nome = "renatoRusso";
+$idade = 19;
+$email = "renatosilva2003.com@gmail.com";
+$pessoa = new Pessoa($nome, $idade, $email);
+$pessoa->exibirInformacoes();
+?>
