@@ -1,0 +1,32 @@
+Adicionar um método à classe "Pessoa" para calcular a idade em meses.
+
+
+<?php
+class Pessoa {
+    private $nome;
+    private $dataNascimento;
+
+    public function __construct($nome, $dataNascimento) {
+        $this->nome = $nome;
+        $this->dataNascimento = new DateTime($dataNascimento);
+    }
+
+    public function getIdadeEmMeses() {
+        $dataAtual = new DateTime();
+        $interval = $this->dataNascimento->diff($dataAtual);
+        $idadeAnos = $interval->y;
+        $idadeMeses = $interval->m;
+        $idadeTotalMeses = ($idadeAnos * 12) + $idadeMeses;
+        return $idadeTotalMeses;
+    }
+
+    public function getNome() {
+        return $this->nome;
+    }
+}
+
+// Exemplo de uso:
+$dataDeNascimento = '2003-05-15';
+$pessoa = new Pessoa("jubileu", $dataDeNascimento);
+$idadeEmMeses = $pessoa->getIdadeEmMeses();
+echo "A idade de {$pessoa->getNome()} é {$idadeEmMeses} meses.";
